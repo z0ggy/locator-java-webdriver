@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="selenium-tutorial" />
+        <module name="Parallel.Execution.Para.Bank" />
         <module name="locators.webdriver" />
         <module name="para.bank" />
       </profile>

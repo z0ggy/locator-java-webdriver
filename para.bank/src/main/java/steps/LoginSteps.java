@@ -1,9 +1,9 @@
 package steps;
 
+import base.BaseUtil;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,7 +11,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginSteps {
+public class LoginSteps extends BaseUtil {
+
+    private BaseUtil baseUtil;
+
+    public void Steps(BaseUtil util) {
+        this.baseUtil = util;
+    }
 
     private WebDriver  driver;
 
@@ -27,7 +33,8 @@ public class LoginSteps {
     }
 
     @When("^I enter valid \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void iEnterValidUsernameAndPassword(String username, String password) {
+    public void iEnterValidCredentials(String username, String password) {
+
         driver.findElement(By.name("username")).sendKeys(username);
         driver.findElement(By.name("password")).sendKeys(password);
         driver.findElement(By.name("username")).submit();
@@ -44,4 +51,6 @@ public class LoginSteps {
     public void quitBrowser(){
         driver.quit();
     }
+
+
 }
